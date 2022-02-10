@@ -119,3 +119,46 @@
   flex: initial;
   width: 300px;
 }
+
+
+/*
+    @media - Optimize the right screen size when adjusting the page
+*/
+
+@media (min-width: 375px) {    
+    .main{
+        font-size: 30px;
+    }
+    
+    .menu{
+        width: 100%;
+    }
+
+   .group_project_link{
+       margin-left: -37px;
+   }
+
+   .my_github{
+       margin-right: -37px;
+   }
+
+   .photo-grid{
+    align-content: center;
+    width: 90%;
+   }
+
+   .footer-one, .footer-three{
+       width: 40%;
+   }
+}
+
+
+/*
+    Currently doing the Tablet Screen Size
+    Status: not working. Display only the 640px but when trying to minimize the screen size, it won't go the media at with 375px
+*/
+@media (min-width: 640px){
+    .footer-one, .footer-three{
+        width: 34%;
+    }
+  }
