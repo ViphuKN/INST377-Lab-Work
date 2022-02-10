@@ -121,44 +121,36 @@
 }
 
 
-/*
-    @media - Optimize the right screen size when adjusting the page
-*/
+  /* Mobile Styles */
+  @media only screen and (max-width: 425px) {
+      .top_bar, .date, .database_demo, .main_page{
+        font-size: 15px;
+      }
 
-@media (min-width: 375px) {    
-    .main{
-        font-size: 30px;
+      .image{
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .header{
+        height: 250px;
+      }
+
+      .footer-one, .footer-two, .footer-three{
+        width: 30%;
+      }
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 426px) and (max-width: 960px) {
+    .footer-one, .footer-two, .footer-three{
+      width: 26%;
     }
-    
-    .menu{
-        width: 100%;
-    }
-
-   .group_project_link{
-       margin-left: -37px;
-   }
-
-   .my_github{
-       margin-right: -37px;
-   }
-
-   .photo-grid{
-    align-content: center;
-    width: 90%;
-   }
-
-   .footer-one, .footer-three{
-       width: 40%;
-   }
-}
-
-
-/*
-    Currently doing the Tablet Screen Size
-    Status: not working. Display only the 640px but when trying to minimize the screen size, it won't go the media at with 375px
-*/
-@media (min-width: 640px){
-    .footer-one, .footer-three{
-        width: 34%;
+  }
+  
+  /* Desktop Styles */
+  @media only screen and (min-width: 961px) {
+    .footer-one, .footer-two, .footer-three{
+      width: 25%;
     }
   }
