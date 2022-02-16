@@ -4,6 +4,7 @@
     <meta charset='UTF-8'/>
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    
     <title>Lab 4: Javascript 1: Make a Carousel (Created by Viphu Nguyen)</title>
     <link rel='stylesheet' href='styles.css'/>
   </head>
@@ -11,7 +12,7 @@
     <h1 class='top_bar'>Name:Viphu Nguyen ~Lab 4: Javascript 1: Make a Carousel~</h1>
     <div class='menu-container'>
         <div class='menu'>
-            <div class='date'>Feb 09, 2022</div>
+            <div class='date'>Feb 14, 2022</div>
             <div class='links'>
               <a class='database_demo' href="data.html">Database Demos</a> <!--Creating a link to data.html-->
               <a class='main_page' href="index.html">Main Page</a> <!--Creating a link to index.html-->
@@ -28,25 +29,31 @@
         </div>
       </div>
 
-      <div class='photo-grid-container'>
-        <div class='photo-grid'>
-          <div class='photo-grid-item first-item'>
-            <img src='images/one.svg'/>
-          </div>
-          <div class='photo-grid-item second-item'>
-            <img src='images/two.svg'/>
-          </div>
-          <div class='photo-grid-item third-item'>
-            <img src='images/three.svg'/>
-          </div>
-          <div class='photo-grid-item fourth-item'>
-            <img src='images/four.svg'/>
-          </div>
-          <div class='photo-grid-item last-item'>
-            <img src='images/five.svg'/>
-          </div>
+    <div class='photo-grid-container'>
+        <div class="carousel">
+            <div class='carousel__item carousel__item--visible first-item'>
+                <img src='images/one.svg'/>
+            </div>
+            <div class='carousel__item second-item'>
+                <img src='images/two.svg'/>
+            </div>
+            <div class='carousel__item third-item'>
+                <img src='images/three.svg'/>
+            </div>
+            <div class='carousel__item fourth-item'>
+                <img src='images/four.svg'/>
+            </div>
+            <div class='carousel__item last-item'>
+                <img src='images/five.svg'/>
+            </div>
+
+            <div class="carousel__actions">
+                <button id="carousel__button--prev" aria-label="Previous slide">Prev</button>
+                <button id="carousel__button--next" aria-label="Next slide">Next</button>
+            </div>
         </div>
-      </div>
+        <script src="script.js" charset="utf-8"></script>
+    </div>
 
       <div class='footer'>
         <div class='footer-item footer-one'>
