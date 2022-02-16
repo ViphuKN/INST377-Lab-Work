@@ -135,6 +135,7 @@ width: 300px;
 .carousel .carousel__item,
 .carousel .carousel__item--hidden {
   display: none;
+
 }
 
 .carousel .carousel__item img {
@@ -147,6 +148,11 @@ width: 300px;
   display: block;
   animation: fadeVisibility 0.5s;
   
+}
+
+button:focus {
+  outline: rgb(11, 151, 53) auto 5px; 
+  background-color: rgba(216, 166, 29, 0.596);
 }
 
 .carousel .carousel__actions {
