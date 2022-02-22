@@ -10,6 +10,9 @@ body {
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
     ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   background-color: darkslategray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Page Layout */
@@ -24,4 +27,158 @@ body {
 .container {
   max-width: 960px;
   margin-top: 25px;
+}
+
+
+/* Top Box Layout */
+.top-box-header {
+  display: inline;
+  text-align: center;
+  background-color: #d3bb51;
+  border: 1px solid #D6D9DC;
+  border-radius: 12px;
+  width: 100%;
+  text-align: left;
+  margin: 40px;
+  padding: 50px;
+}
+
+.top-box-header h1{
+  font-size: 23px;
+  margin-bottom: auto;
+}
+
+/* Food Submission */
+.food-form-header {
+  text-align: center;
+  background-color: #F6F7F8;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  width: 80%;
+  margin: 40px 0;
+  padding: 50px;
+}
+
+.food-form-header h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.food-form {
+  display: inline;
+  background-color: #F6F7F8;
+  border: 1px solid #D6D9DC;
+  border-radius: 9px;
+  width: 60%;
+  height: 394px;
+  padding: 28px;
+  margin: 0 0 40px 0;
+}
+
+/* Styling White Board Layout*/
+.form-row {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.form-row input[type='text'] {
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  width: 100%;
+  padding: 7px;
+  font-size: 10px;
+}
+
+.form-row label {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+/* Radio Buttons for Yes or No on Veggie/Vegan */
+.legacy-form-row {
+  border: none;
+  margin-bottom: 40px;
+}
+
+.legacy-form-row legend {
+  margin-bottom: 15px;
+}
+
+.legacy-form-row .radio-label {
+  display: block;
+  font-size: 14px;
+  padding: 0 7px 0 6px;
+}
+
+.legacy-form-row input[type='radio'] {
+  margin-top: 2px;
+}
+  
+.legacy-form-row .radio-label,
+.legacy-form-row input[type='radio'] {
+  float: left;
+}
+
+/* Submit Button Layout */
+button {
+  background-color: rgb(116, 224, 116);
+  color: rgba(255, 255, 255, 0.863);
+  width: 56%;
+  height: 20%;
+  padding: 16px;
+  border:rgba(255, 255, 255, 0.863);
+  border-radius: 5px;
+
+}
+
+/* Content Box Layout*/
+.blank-content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  
+} 
+
+
+/***
+*       ____                          _              
+*      / __ \                        (_)             
+*     | |  | |  _   _    ___   _ __   _    ___   ___ 
+*     | |  | | | | | |  / _ \ | '__| | |  / _ \ / __|
+*     | |__| | | |_| | |  __/ | |    | | |  __/ \__ \
+*      \___\_\  \__,_|  \___| |_|    |_|  \___| |___/
+*                                                                                                      
+*/
+
+
+@media only screen and (min-width: 700px) {
+  /* 
+  .food-form .blank-content{
+    float: left;
+    width: 50%;
+  } */
+
+ /* Adjusting the form and the block content to be on the same row. It is not working sofar */
+  .food-form .blank-content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start
+  }
+ 
+
+  .top-box-header{
+    width: 87%;
+    
+  }
+
+  .top-box-header h1{
+    font-size: 32px;
+  }
 }
