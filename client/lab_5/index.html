@@ -1,53 +1,77 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta charset='UTF-8'/>
-    <meta name='viewport'
-      content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Lab 5(Created by Viphu Nguyen)</title>
-    <link rel='stylesheet' href='styles.css'/>
-  </head>
-  <body class='main'>
-    
-    <header class='top-box-header'> <!-- Display My Name and the Lab's number-->
-      <h1>Viphu Nguyen's Lab 5</h1>
-    </header>
 
-    <form action='' method='get' class='food-form'> <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
-      <div class='form-row'> <!-- First name input-->
-        <label for='first-name'><h2>First Name</h2></label>
-        <input id='first-name' name='first-name' type='text'/>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- Bulma.io's CSS Library-->
+  <link rel='stylesheet' href='styles.css' />
+  <title>Lab 5(Created by Viphu Nguyen)</title>
+</head>
+
+<body>
+
+  <div class='container'>
+    <div class='columns is-centered'>
+      <!-- Display My Name and the Lab's number-->
+      <div class='box'>
+        <h1 class='title'>Viphu Nguyen's Lab 5</h1>
       </div>
+    </div>
 
-      <div class='form-row'> <!-- Food preference input-->
-        <label for='food-preference'><h2>Food Preference</h2></label>
-        <input id='food-preference' name='food-preference' type='text'/>
+    <div class='content-fill'>
+      <div class='columns'>
+        <div class='column is-narrow'>
+          <div class='block'>
+            <form action='https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json' method='get'
+              class='food-form'>
+              <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+              <div class='form-row'>
+                <!-- First name input-->
+                <label for='first-name'>
+                  <div class='form-style'> First Name</div>
+                </label>
+                <input id='first-name' name='first-name' type='text' placeholder='text input' />
+              </div>
+
+              <div class='form-row'>
+                <!-- Food preference input-->
+                <label for='food-preference'>
+                  <div class='form-style'>Food Preference</div>
+                </label>
+                <input id='food-preference' name='food-preference' type='text' placeholder='text input' />
+              </div>
+
+              <fieldset class='legacy-form-row'>
+                <!-- The radio buttons for Yes or No on Veggie/Vegan-->
+                <legend>
+                  <div class='form-style'>Veggie or Vegan?</div>
+                </legend>
+                <input id='food-type-1' name='food-type' type='radio' value='yes' />
+                <label for='food-type-1' class='radio-label'>Yes</label>
+                <input id='food-type-2' name='food-type' type='radio' value='no' checked />
+                <label for='food-type-2' class='radio-label'>No</label>
+              </fieldset>
+
+              <div class='form-row'>
+                <!-- A submit button-->
+                <button>Submit</button>
+              </div>
+            </form>
+            <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+          </div>
+
+        </div>
+        <div class="column is-half">
+          <div class='form-row blank-content'>
+            <!-- Content that will be used in two weeks-->
+            <p>This is going to be something in two weeks.</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+</body>
 
-      <fieldset class='legacy-form-row'> <!-- The radio buttons for Yes or No on Veggie/Vegan-->
-        <legend><h2>Veggie or Vegan?</h2></legend>
-        <input id='talk-type-1'
-            name='talk-type'
-            type='radio'
-            value='yes' />
-        <label for='talk-type-1' class='radio-label'>Yes</label>
-        <input id='talk-type-2'
-            name='talk-type'
-            type='radio'
-            value='no'
-            checked />
-        <label for='talk-type-2' class='radio-label'>No</label>
-    </fieldset>
-
-    <div class='form-row submit-button'> <!-- A submit button-->
-      <button>Submit</button>
-   </div> 
- 
-   <div class='form-row blank-content'> <!-- Content that will be used in two weeks-->
-    <p>This is going to be something in two weeks.</p> 
-   </div>
-
-    </form> <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
-  
-  </body>
 </html>
