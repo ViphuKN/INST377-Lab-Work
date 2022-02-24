@@ -1,7 +1,7 @@
 // As the last step of your lab, hook this up to index.html
 
 async function mainEvent() { // the async keyword means we can make API requests
-  const form = document.querySelector('.main_form');
+  const form = document.querySelector('.food-form');
   form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
     submitEvent.preventDefault(); // This prevents your page from refreshing!
     console.log('form submission'); // this is substituting for a "breakpoint"
