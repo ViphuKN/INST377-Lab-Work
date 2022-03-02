@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- Bulma.io's CSS Library-->
+  <link rel='stylesheet' href='styles.css' />
+  <title>Lab 6(Created by Viphu Nguyen)</title>
+</head>
+
+<body>
+
+  <div class='container'>
+    <div class='columns is-centered'>
+      <!-- Display My Name and the Lab's number-->
+      <div class='box'>
+        <h1 class='title'>Viphu Nguyen's Lab 6</h1>
+      </div>
+    </div>
+
+    <div class='content-fill'>
+      <div class='columns'>
+        <div class='column is-narrow'>
+          <div class='block'>
+            <form method='get'
+              class='food-form'>
+              <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+              <div class='form-row'>
+                <!-- First name input-->
+                <label for='first-name'>
+                  <div class='form-style'> First Name</div>
+                </label>
+                <input id='first-name' name='first-name' type='text' placeholder='text input' />
+              </div>
+
+              <div class='form-row'>
+                <!-- Food preference input-->
+                <label for='food-preference'>
+                  <div class='form-style'>Food Preference</div>
+                </label>
+                <input id='food-preference' name='food-preference' type='text' placeholder='text input' />
+              </div>
+
+              <fieldset class='legacy-form-row'>
+                <!-- The radio buttons for Yes or No on Veggie/Vegan-->
+                <legend>
+                  <div class='form-style'>Veggie or Vegan?</div>
+                </legend>
+                <input id='food-type-1' name='food-type' type='radio' value='yes' />
+                <label for='food-type-1' class='radio-label'>Yes</label>
+                <input id='food-type-2' name='food-type' type='radio' value='no' checked />
+                <label for='food-type-2' class='radio-label'>No</label>
+              </fieldset>
+
+              <div class='form-row'>
+                <!-- A submit button-->
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+            <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+          </div>
+
+        </div>
+        <div class="column is-half">
+          <div class='form-row blank-content'>
+            <!-- Content that will be used in two weeks-->
+            <p>This is going to be something in two weeks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js" charset="utf-8"></script>
+</body>
+
+</html>
