@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
+      ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
+    background-color: darkslategray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  html{
+    min-height: 100%;
+    min-width: 100%;
+    background-color: darkslategray;
+  }
+  
+  /* Page Layout */
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wrapper {
+    display: flex;
+  }
+  
+  .container {
+    min-width: 100%;
+    flex-grow: 1;
+    flex-wrap: row;
+  } 
+  
+  .box {
+    width: 90%;
+    margin-top: 1.5rem;
+    background-color: rgb(240,230,140);
+  }
+  
+  /* Food Submission */
+  .food-form {
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 9px;
+    width: 250px;
+    height: 402px;
+    padding: 28px;
+    margin: 0 0 24px 48px;
+    
+  }
+  
+  /* Styling White Board Layout*/
+  .form-row {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .form-row input[type='text'] {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 10px;
+  }
+  
+  .form-row label {
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  /* Radio Buttons for Yes or No on Veggie/Vegan */
+  .legacy-form-row {
+    border: none;
+    margin-bottom: 12px;
+  }
+  
+  .legacy-form-row legend {
+    margin-bottom: 15px;
+  }
+  
+  .legacy-form-row .radio-label {
+    display: block;
+    font-size: 14px;
+    padding: 0 7px 0 6px;
+  }
+  
+  .legacy-form-row input[type='radio'] {
+    margin-top: 2px;
+  }
+    
+  .legacy-form-row .radio-label,
+  .legacy-form-row input[type='radio'] {
+    float: left;
+  }
+  
+  /* Submit Button Layout */
+  button {
+    background-color: rgba(54, 150, 54, 0.712);
+    color: rgba(255, 255, 255, 0.863);
+    width: 47%;
+    padding: 10px;
+    border:rgba(255, 255, 255, 0.863);
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: rgb(39, 88, 11);
+  }
+
+  /* Content Box Layout*/
+  .blank-content {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    
+  } 
+  
+  .block{
+    width: 300px;
+  }
+  
+  /* Styling the font */
+  .form-style {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  /***
+  *       ____                          _              
+  *      / __ \                        (_)             
+  *     | |  | |  _   _    ___   _ __   _    ___   ___ 
+  *     | |  | | | | | |  / _ \ | '__| | |  / _ \ / __|
+  *     | |__| | | |_| | |  __/ | |    | | |  __/ \__ \
+  *      \___\_\  \__,_|  \___| |_|    |_|  \___| |___/
+  *                                                                                                      
+  */
+  
+  
+  
+  @media only screen and (max-width: 505px) {
+    .blank-content {
+      padding: 14px;
+      margin: -24px 168px 0 95px;
+      font-size: 16px;
+    }
+  }
