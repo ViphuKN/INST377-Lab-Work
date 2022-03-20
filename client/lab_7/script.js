@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 function getRandomIntInclusive(min, max) {
   newMin = Math.ceil(min);
   newMax = Math.floor(max);
@@ -20,7 +21,7 @@ function resotArrayMake(dataArray) {
 }
 
 function createHtmlList(collection) {
-  console.log('fired HTML creator');
+  // console.log('fired HTML creator');
   console.log(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
@@ -35,24 +36,49 @@ function createHtmlList(collection) {
 
 // As the last step of your lab, hook this up to index.html
 async function mainEvent() { // the async keyword means we can make API requests
-  console.log('script loaded');
+  console.log('script loaded'); // This is substituting for a "breakpoint"
   const form = document.querySelector('.food-form');
   const submit = document.querySelector('.submit_button');
-  submit.style.display = 'none';
+
+  const resto = document.querySelector('#resto_name');
+  const zipcode = document.querySelector('#zipcode');
+  submit.style.display = 'none'; // it's better not to display this until the data has loaded
 
   const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
-  console.log(arrayFromJson);
+  // console.log(arrayFromJson);
 
+  // This if statement is to prevent a race condition on data load
   if (arrayFromJson.length > 0) {
+    submit.style.display = 'block';
+    // this allows us to change the var to anything we want, but pre-sets it as an array for reasoning
+    let currentArray = [];
+    resto.addEventListener('input', async (event) => {
+      console.log(event.target.value);
+
+      if (currentArray.length < 1) { // The actual error here is that currentArray is EMPTY
+        // console.log('empty');
+        return;
+      }
+
+      const selectResto = currentArray.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
+
+      console.log(selectResto);
+      createHtmlList(selectResto);
+    });
+
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
-      console.log('form submission'); // this is substituting for a "breakpoint"
-      submit.style.display = 'block';
+      // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      const restoArray = resotArrayMake(arrayFromJson);
-      createHtmlList(restoArray);
+      curentArray = resotArrayMake(arrayFromJson);
+      console.log(currentArray);
+      createHtmlList(curentArray);
     });
   }
 }

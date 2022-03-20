@@ -53,7 +53,6 @@
     border: 1px solid #D6D9DC;
     border-radius: 9px;
     width: 250px;
-    height: 402px;
     padding: 28px;
     margin: 0 0 24px 48px;
     
@@ -85,36 +84,10 @@
     font-size: 18px;
   }
   
-  /* Radio Buttons for Yes or No on Veggie/Vegan */
-  .legacy-form-row {
-    border: none;
-    margin-bottom: 12px;
-  }
-  
-  .legacy-form-row legend {
-    margin-bottom: 15px;
-  }
-  
-  .legacy-form-row .radio-label {
-    display: block;
-    font-size: 14px;
-    padding: 0 7px 0 6px;
-  }
-  
-  .legacy-form-row input[type='radio'] {
-    margin-top: 2px;
-  }
-    
-  .legacy-form-row .radio-label,
-  .legacy-form-row input[type='radio'] {
-    float: left;
-  }
-  
   /* Submit Button Layout */
   button {
     background-color: rgba(54, 150, 54, 0.712);
     color: rgba(255, 255, 255, 0.863);
-    width: 47%;
     padding: 10px;
     border:rgba(255, 255, 255, 0.863);
     border-radius: 5px;
