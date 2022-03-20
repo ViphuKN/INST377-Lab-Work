@@ -20,16 +20,16 @@ function resotArrayMake(dataArray) {
   return listItems;
 }
 
+// Injection function
 function createHtmlList(collection) {
   // console.log('fired HTML creator');
-  console.log(collection);
+  console.log('createHtml', collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
     const {name} = item;
     const displayName = name.toLowerCase();
     const injectThisItem = `<li>${displayName}</li>`;
-    // const injectThisItem = '<li>${item.name}</li>';
     targetList.innerHTML += injectThisItem;
   });
 }
@@ -53,22 +53,27 @@ async function mainEvent() { // the async keyword means we can make API requests
     submit.style.display = 'block';
     // this allows us to change the var to anything we want, but pre-sets it as an array for reasoning
     let currentArray = [];
-    resto.addEventListener('input', async (event) => {
+
+    resto.addEventListener('input', (event) => {
+      if (currentArray.length < 1) { return; }
       console.log(event.target.value);
-
-      if (currentArray.length < 1) { // The actual error here is that currentArray is EMPTY
-        // console.log('empty');
-        return;
-      }
-
-      const selectResto = currentArray.filter((item) => {
+      console.log(currentArray);
+      // console.log(resto.value);
+      const restaurants = currentArray.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
       });
+      createHtmlList(restaurants);
+    });
 
-      console.log(selectResto);
-      createHtmlList(selectResto);
+    zipcode.addEventListener('input', (event) => {
+      if (!currentArray.length) { return; }
+      console.log(event.target.value);
+      console.log(currentArray);
+      // console.log(zipcode.value);
+      const zip = currentArray.filter((item) => item.zip.includes(event.target.value));
+      createHtmlList(zip);
     });
 
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
@@ -76,9 +81,9 @@ async function mainEvent() { // the async keyword means we can make API requests
       // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      curentArray = resotArrayMake(arrayFromJson);
+      currentArray = resotArrayMake(arrayFromJson);
       console.log(currentArray);
-      createHtmlList(curentArray);
+      createHtmlList(currentArray);
     });
   }
 }
