@@ -29,7 +29,7 @@ function createHtmlList(collection) {
   collection.forEach((item) => {
     const {name} = item;
     const displayName = name.toLowerCase();
-    const injectThisItem = `<li>${displayName}</li>`;
+    const injectThisItem = `<li>${displayName}</li> ${item.zip}<br></li>`;
     targetList.innerHTML += injectThisItem;
   });
 }
