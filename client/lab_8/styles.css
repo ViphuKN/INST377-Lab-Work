@@ -17,6 +17,11 @@
     min-width: 100%;
   }
   
+  /* Map Display */
+  #map { 
+      height: 180px; 
+    }
+
   html{
     min-height: 100%;
     min-width: 100%;
