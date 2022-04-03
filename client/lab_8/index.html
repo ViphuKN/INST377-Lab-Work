@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- Bulma.io's CSS Library-->
+  <link rel='stylesheet' href='styles.css' />
+  <title>Lab 7 (Created by Viphu Nguyen)</title>
+</head>
+
+<body>
+
+  <div class='container'>
+    <div class='columns is-centered'>
+      <!-- Display My Name and the Lab's number-->
+      <div class='box'>
+        <h1 class='title'>Viphu Nguyen's Lab 7</h1>
+      </div>
+    </div>
+
+    <div class='content-fill'>
+      <div class='columns'>
+        <div class='column is-narrow'>
+          <div class='block'>
+            <form method='get'
+              class='food-form'>
+              <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+              <div class='form-row'>
+                <!-- First name input-->
+                <label for='resto_name'>
+                  <div class='form-style'> Restaurant Name</div>
+                </label>
+                <input id='resto_name' name='resto-name' type='text' placeholder='text input' />
+              </div>
+
+              <div class='form-row'>
+                <!-- Zipcode input-->
+                <label for='zipcode'>
+                  <div class='form-style'>Zipcode</div>
+                </label>
+                <input id='zipcode' name='zipcode' type='text' placeholder='text input' />
+              </div>
+
+
+              <div class='form-row'>
+                <!-- A submit button-->
+                <button class='btn submit_button' type="submit">Change Restaurants</button>
+              </div>
+            </form>
+            <!-- This is where the input gets collected by the form is sent when the user clicks the Submit button -->
+          </div>
+
+        </div>
+        <div class="column is-half">
+          <div class='form-row blank-content'>
+            <h2>Restaurant List</h2>
+            <ul class='resto-list'>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js" charset="utf-8"></script>
+</body>
+
+</html>
