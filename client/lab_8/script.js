@@ -50,6 +50,16 @@ function initMap(targetId) {
 }
 
 function addMapMarkers(map, collection) {
+  // To remove the existing markers
+  map.eachLayer((layer) => {
+    if (layer instanceof L.Marker) {
+      // Marker specific actions
+      // console.log(layer);
+      layer.remove();
+    }
+  })
+
+  // To add the map markers
   collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
     console.log(item.geocoded_column_1?.coordinates);
