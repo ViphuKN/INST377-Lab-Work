@@ -37,7 +37,7 @@ function createHtmlList(collection) {
 // Map function
 function initMap(targetId) {
   const latLong = [38.784, -76.872];
-  const map = L.map(targetId).setView(latLong, 17);
+  const map = L.map(targetId).setView(latLong, 14);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -60,10 +60,28 @@ function addMapMarkers(map, collection) {
   })
 
   // To add the map markers
-  collection.forEach((item) => {
-    const point = item.geocoded_column_1?.coordinates;
+  collection.forEach((item, index) => {
+    const points = item.geocoded_column_1?.coordinates;
+    if (index === 0 && points[1] && points[0]) {
+      // console.log(points[1], points[0]);
+      map.panTo([points[1], points[0]]);
+    }
     console.log(item.geocoded_column_1?.coordinates);
-    L.marker([point[1], point[0]]).addTo(map);
+    L.marker([points[1], points[0]]).addTo(map);
+  });
+}
+
+function refreshList(target, storage) {
+  // Uses side-effects to store data on browser
+  // Cannot return from a synchronous event storing an async event
+  target.addEventListener('click', async (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'); // This accesses some data from our API
+    const arrayFromJson = await results.json(); // This changes it into data we can use - an object
+    console.log(arrayFromJson);
+    localStorage.setItem(storage, JSON.stringify(arrayFromJson));
+    location.reload(); // Inform the localstorage that it's been updated
   });
 }
 
@@ -76,13 +94,17 @@ async function mainEvent() { // the async keyword means we can make API requests
   const resto = document.querySelector('#resto_name');
   const zipcode = document.querySelector('#zipcode');
   const map = initMap('map');
+  const refresh = document.querySelector('#refresh_list');
+
   const retrievalVar = 'restaurants';
   submit.style.display = 'none'; // it's better not to display this until the data has loaded
+
+  refreshList(refresh, retrievalVar);
 
   if (localStorage.getItem(retrievalVar) === undefined) {
     const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'); // This accesses some data from our API
     const arrayFromJson = await results.json(); // This changes it into data we can use - an object
-    console.log(arrayFromJson);
+    // console.log(arrayFromJson);
     localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson));
   }
 
@@ -100,14 +122,16 @@ async function mainEvent() { // the async keyword means we can make API requests
     resto.addEventListener('input', (event) => {
       if (currentArray.length < 1) { return; }
       console.log(event.target.value);
-      console.log(currentArray);
       // console.log(resto.value);
       const restaurants = currentArray.filter((item) => {
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
       });
+      restaurantsCoordinate = restaurants.filter((item) => item.geocoded_column_1);
+      console.log(restaurantsCoordinate);
       createHtmlList(restaurants);
+      addMapMarkers(map, restaurantsCoordinate);
     });
 
     // A filter for zipcode input
@@ -117,7 +141,9 @@ async function mainEvent() { // the async keyword means we can make API requests
       console.log(currentArray);
       // console.log(zipcode.value);
       const zip = currentArray.filter((item) => item.zip.includes(event.target.value));
+      restaurantsCoordinate = zip.filter((item) => item.geocoded_column_1);
       createHtmlList(zip);
+      addMapMarkers(map, restaurantsCoordinate);
     });
 
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
@@ -128,7 +154,6 @@ async function mainEvent() { // the async keyword means we can make API requests
       currentArray = resotArrayMake(storedDataArray);
       console.log(currentArray);
       createHtmlList(currentArray);
-      addMapMarkers(map, currentArray);
     });
   }
 }

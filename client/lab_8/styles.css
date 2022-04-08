@@ -19,7 +19,7 @@
   
   /* Map Display */
   #map { 
-      height: 180px; 
+      height: 360px; 
     }
 
   html{
@@ -32,7 +32,7 @@
   .columns {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
   
@@ -102,6 +102,9 @@
     background-color: rgb(39, 88, 11);
   }
 
+  .btn {
+    margin-bottom: 5px;
+  }
   /* Content Box Layout*/
   .blank-content {
     background-color: white;
